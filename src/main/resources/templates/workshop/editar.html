@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="Content-Type" content="text/html"></meta>
+<title>Workshop</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div><a href="/">Volver al inicio</a></div>
+Editar:
+<form action="#" th:action="@{/workshop/editar}" th:object="${ws}" method="post">
+    <input type="text" hidden th:field="*{id}" id="id">
+    <label for="nombre">Nombre</label>
+    <input type="text" th:field="*{nombre}" id="nombre">
+    
+    <br>
+    
+    <label for="autor">Autor</label>
+    <select th:field="*{autor}" id="autor">
+    <option value="Kamil Sauma">Kamil Sauma</option>
+    <option value="Marta Sanchez">Marta Sanchez</option>
+    <option value="Pedro Morena">Pedro Morena</option>
+    <option value="Yamna Mendez">Yamna Mendez</option>
+    </select>
+    
+    <br>
+    
+    <label for="categoria">Categoria</label>
+    <select th:field="*{idCategoria}" id="categoria">
+    <option value="0">select operator</option>
+    <option th:each="operator : ${categorias}" th:value="${operator.id}" th:text="${operator.nombre}"></option>
+    </select>
+    
+    <br>
+    
+    <label for="objetivo">Objetivo</label>
+    <input type="text" th:field="*{objetivo}" id="objetivo">
+    
+    
+    <br>
+    
+    <label for="keywords">Keywords (Separados por ",". Hasta 3. Ej: (Keyword1,Keyword2,Keyword3))</label>
+    <input type="text" th:field="*{keywords}" id="keywords">
+    
+    
+    <br>
+    
+     <input type="submit" value="Editar Workshop">   
+</form>
+
+</body>
+</html>

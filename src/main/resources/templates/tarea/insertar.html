@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="Content-Type" content="text/html"></meta>
+<title>Workshop</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div><a href="/">Volver al inicio</a></div>
+Insertar:
+<form action="#" th:action="@{/tarea/insertar/} + ${id}" th:object="${t}" method="post">
+    <label for="nombre">Nombre</label>
+    <input type="text" th:field="*{nombre}" id="nombre">
+    
+    <br>
+    
+    <label for="descripcion">Descripción</label>
+    <input type="text" th:field="*{descripcion}" id="descripcion">
+    
+    
+    <br>
+    
+    <label for="texto">Texto</label>
+    <input type="text" th:field="*{texto}" id="texto">
+    
+    
+    <br>
+    
+    <label for="tiempo">Tiempo</label>
+    <input type="number" step="0.1" th:field="*{tiempo}" id="tiempo">
+    
+    
+    <br>
+    
+     <input type="submit" value="Añadir Tarea">   
+</form>
+
+</body>
+</html>

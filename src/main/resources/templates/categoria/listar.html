@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="Content-Type" content="text/html"></meta>
+<title>Categorias</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div><a href="/">Volver al inicio</a></div>
+	<div>
+		<h1>Lista de categorias</h1>
+		<ul>
+			<div th:each="cat : ${categorias}">
+				<li>
+						<h4><span th:text="${cat.nombre}">Nombre</span></h4>
+						<a th:href="@{'/categoria/editar/' + ${cat.id}}">EDIT</a>
+				</li>
+			</div>
+		</ul>
+	</div>
+</body>
+</html>

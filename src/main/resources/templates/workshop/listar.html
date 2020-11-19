@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="Content-Type" content="text/html"></meta>
+<title>Workshops</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div><a href="/">Volver al inicio</a></div>
+	<div>
+		<h1>Lista de workshops</h1>
+		<ul>
+			<div th:each="entry : ${ws}">
+				<li>
+						<h4><span th:text="${entry.nombre}">Nombre</span></h4>
+						<h5>Autor: <span th:text="${entry.autor}">Autor</span></h5>
+						<h5>Tiempo: <span th:text="${entry.tiempo}">Tiempo</span> minutos</h5>
+						<p>Objetivo: <span th:text="${entry.objetivo}">Objetivo</span></p>
+						<p>Categoria: <span th:text="${entry.categoria.nombre}">Categoria</span></p>
+						<strong>Keywords:</strong>
+						<ul>
+							<li th:each="key : ${entry.keywords}">
+								<p th:text="${key}">Keyword</p>
+							</li>
+						</ul>
+						
+						
+						<strong>Tareas:</strong>
+						<ul>
+							<li th:each="tarea : ${entry.tareas}">
+								<p>Tarea # <span th:text="${tarea.id}">Id</span></p>
+								<p>Nombre: <span th:text="${tarea.nombre}">Nombre</span></p>
+								<p>Descripción: <span th:text="${tarea.descripcion}">Descripción</span></p>
+								<p>Texto: <span th:text="${tarea.texto}">Texto</span></p>
+								<p>Tiempo: <span th:text="${tarea.tiempo}">Tiempo</span> minutos</p>
+							</li>
+						</ul>
+						<a th:href="@{'/workshop/editar/' + ${entry.id}}">EDITAR</a>
+						<a th:href="@{'/tarea/insertar/' + ${entry.id}}">AGREGAR TAREA</a>
+						<a th:href="@{'/workshop/reporte/' + ${entry.id}}">REPORTE</a>
+				</li>
+			</div>
+		</ul>
+	</div>
+</body>
+</html>

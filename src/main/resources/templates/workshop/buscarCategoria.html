@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="Content-Type" content="text/html"></meta>
+<title>Workshop</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+	<div><a href="/">Volver al inicio</a></div>
+	Buscar por categoria:
+	<div th:each="cat : ${categorias}">
+	<a th:href="@{'/workshop/listarCategoria/' + ${cat.id}}" th:text="${cat.nombre}">Nombre</a>
+	</div>
+
+</body>
+</html>

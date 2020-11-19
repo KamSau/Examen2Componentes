@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="Content-Type" content="text/html"></meta>
+<title>Categoria</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<div><a href="/">Volver al inicio</a></div>
+Insertar:
+<form action="#" th:action="@{/categoria/insertar}" th:object="${cat}" method="post">
+    <label for="nombre">Nombre</label>
+    <input type="text" th:field="*{nombre}" id="nombre">
+     <input type="submit" value="Crear Categoria">   
+</form>
+
+</body>
+</html>
